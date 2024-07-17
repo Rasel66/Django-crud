@@ -1,0 +1,49 @@
+{% extends "webapp/base.html" %} {% block content %}
+
+<body>
+  <div class="container">
+    <h5>Welcome, {{user}} 👋</h5>
+    <br />
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}"
+      >Create a new record &nbsp;
+      <i class="fa fa-plus-circle" aria-hidden="true"></i
+    ></a>
+    <hr />
+
+    <table class="table table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Join Date</th>
+          <th scope="col">View</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if records %} {% for record in records %}
+
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{record.first_name}} {{record.last_name}}</td>
+          <td>{{record.email}}</td>
+          <td>{{record.phone}}</td>
+          <td>{{record.address}}</td>
+          <td>{{record.creation_date}}</td>
+          <td>
+            <a
+              class="btn btn-primary btn-sm"
+              href="{% url 'record' record.id %}"
+              ><i class="fa fa-eye" aria-hidden="true"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %} {% endif %}
+      </tbody>
+    </table>
+  </div>
+</body>
+
+{% endblock content %}
