@@ -43,6 +43,11 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-7da0.up.railway.app'
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
