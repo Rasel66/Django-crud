@@ -9,8 +9,7 @@
     <br />
 
     <form action="" method="POST" autocomplete="off">
-      {% csrf_token %} {% comment %} {{form.crispy}} {% endcomment %}
-      {{form.username|as_crispy_field}} <br />
+      {% csrf_token %} {{form.username|as_crispy_field}} <br />
       {{form.password1|as_crispy_field}} <br />
       {{form.password2|as_crispy_field}} <br />
 
